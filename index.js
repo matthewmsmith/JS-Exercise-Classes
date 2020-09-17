@@ -195,8 +195,25 @@ console.log(instructor.grade('Matthew', 'Math'));
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian{
+ constructor(person) {
+   super()
+   this.previousBackground = person.previousBackground;
+   this.className = person.className;
+   this.favSubjects= []
 
+ }
+ listSubjects(){
+   return `${this.favSubjects}`
+ }
+ sprintChallenge(subject) {
+   return `${name}  has begun spring challenge on ${subject}`
+
+ }
+ PRAssinment(subject) {
+  return `${name}  has submitted a PR for ${subject}`
+  
+}
 }
 
 /*
@@ -212,9 +229,21 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+   constructor(information){
+     super()
+     this.gradClassName = information.gradClassName;
+     this.favInstructor = information.favInstructor;
 
+   }
+   standUp(slackChannel){
+     return `${name} announces ti ${slackChannel}, @channel standy times!`
+   }
+   debugsCode(student, subject) {
+     return `${name} debugs, ${student}'s code on ${subject}`
+   }
 }
+
 
 /*
   STRETCH PROBLEM (no tests!)

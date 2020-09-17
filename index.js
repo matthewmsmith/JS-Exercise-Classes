@@ -41,24 +41,24 @@ class Airplane {
 */
 
 class Person {
- constructor(name, age) {
-   this.name = name;
-   this.age = age;
-   this.stomach = [];
- }
- eat(edible) {
-   if(this.stomach.length < 10) {
-   this.stomach.push(edible);
-   } else {
-     return 'I am full'
-   }
- }
- poop() {
-   this.stomach = [];
- }
- toString() {
-   return `${this.name}, ${this.age}`
- }
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(edible) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(edible);
+    } else {
+      return "I am full";
+    }
+  }
+  poop() {
+    this.stomach = [];
+  }
+  toString() {
+    return `${this.name}, ${this.age}`;
+  }
 }
 
 /*
@@ -76,31 +76,31 @@ class Person {
 */
 
 class Car {
- constructor(model, milesPerGallon) {
-   this.model = model;
-   this.milesPerGallon = milesPerGallon;
-   this.tank = 0;
-   this.odometer = 0;
- }
-
- fill(gallons) {
-   this.tank += gallons;
- }
- drive(distance) {
-  if (this.tank <= distance / this.milesPerGallon) {
-     this.odometer += this.milesPerGallon;
-     this.tank = 0;
-     return `I ran out of fuel at ${this.odometer}`
-  } else {
-      this.odometer += distance;
-    this.tank = this.tank - distance / this.milesPerGallon;
-    return `Distance traveled ${distance}, 
-    Miles per gallon ${this.milesPerGallon} Fuel: ${this.tank} Odometer: ${this.odometer}`
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
- }
+
+  fill(gallons) {
+    this.tank += gallons;
+  }
+  drive(distance) {
+    if (this.tank <= distance / this.milesPerGallon) {
+      this.odometer += this.milesPerGallon;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer}`;
+    } else {
+      this.odometer += distance;
+      this.tank = this.tank - distance / this.milesPerGallon;
+      return `Distance traveled ${distance}, 
+    Miles per gallon ${this.milesPerGallon} Fuel: ${this.tank} Odometer: ${this.odometer}`;
+    }
+  }
 }
-const car1 = new Car('Ford', 25)
-car1.fill(15)
+const car1 = new Car("Ford", 25);
+car1.fill(15);
 console.log(car1.drive(200));
 
 /*
@@ -116,26 +116,23 @@ console.log(car1.drive(200));
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-constructor(person) {
-  this.name = person.name;
-  this.age = person.age;
-  this.location = person.location;
- }
+  constructor(person) {
+    this.name = person.name;
+    this.age = person.age;
+    this.location = person.location;
+  }
 
-speak() {
-  return `Hello my name is ${this.name}, I am from ${this.location}`
-}
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
 
 const lambda = new Lambdasian({
-  name: 'Matt',
+  name: "Matt",
   age: 27,
-  location: 'Kalamazoo'
-})
+  location: "Kalamazoo",
+});
 console.log(lambda);
-
-
-
 
 /*
   TASK 4
@@ -153,32 +150,30 @@ console.log(lambda);
 */
 class Instructor extends Lambdasian {
   constructor(person) {
-    super(person)
+    super(person);
     this.specialty = person.specialty;
     this.favLanguage = person.favLanguage;
     this.catchPhrase = person.catchPhrase;
   }
- demo(subject) {
-  return `Today we are learning about ${subject}`
- }
- grade(student, subject){
-   return `${student} receives a perfect score on ${subject}`
- }
-
-
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject) {
+    return `${student} receives a perfect score on ${subject}`;
+  }
 }
 const instructor = new Instructor({
-  name: 'Mike',
+  name: "Mike",
   age: 27,
-  location: 'Kalamazoo', 
-  specialty: 'Frontend Development',
-  favLanguage: 'JS',
-  catchPhrase: 'Dont forget the homies'
-})
+  location: "Kalamazoo",
+  specialty: "Frontend Development",
+  favLanguage: "JS",
+  catchPhrase: "Dont forget the homies",
+});
 console.log(instructor);
-const taught = instructor.demo('Java')
+const taught = instructor.demo("Java");
 console.log(taught);
-console.log(instructor.grade('Matthew', 'Math'));
+console.log(instructor.grade("Matthew", "Math"));
 
 /*
   TASK 5
@@ -195,25 +190,22 @@ console.log(instructor.grade('Matthew', 'Math'));
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student extends Lambdasian{
- constructor(person) {
-   super()
-   this.previousBackground = person.previousBackground;
-   this.className = person.className;
-   this.favSubjects= []
-
- }
- listSubjects(){
-   return `${this.favSubjects}`
- }
- sprintChallenge(subject) {
-   return `${name}  has begun spring challenge on ${subject}`
-
- }
- PRAssinment(subject) {
-  return `${name}  has submitted a PR for ${subject}`
-  
-}
+class Student extends Lambdasian {
+  constructor(person) {
+    super();
+    this.previousBackground = person.previousBackground;
+    this.className = person.className;
+    this.favSubjects = [];
+  }
+  listSubjects() {
+    return `${this.favSubjects}`;
+  }
+  sprintChallenge(subject) {
+    return `${name}  has begun spring challenge on ${subject}`;
+  }
+  PRAssinment(subject) {
+    return `${name}  has submitted a PR for ${subject}`;
+  }
 }
 
 /*
@@ -230,20 +222,18 @@ class Student extends Lambdasian{
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager extends Instructor {
-   constructor(information){
-     super()
-     this.gradClassName = information.gradClassName;
-     this.favInstructor = information.favInstructor;
-
-   }
-   standUp(slackChannel){
-     return `${name} announces ti ${slackChannel}, @channel standy times!`
-   }
-   debugsCode(student, subject) {
-     return `${name} debugs, ${student}'s code on ${subject}`
-   }
+  constructor(information) {
+    super();
+    this.gradClassName = information.gradClassName;
+    this.favInstructor = information.favInstructor;
+  }
+  standUp(slackChannel) {
+    return `${name} announces ti ${slackChannel}, @channel standy times!`;
+  }
+  debugsCode(student, subject) {
+    return `${name} debugs, ${student}'s code on ${subject}`;
+  }
 }
-
 
 /*
   STRETCH PROBLEM (no tests!)
@@ -257,13 +247,27 @@ class ProjectManager extends Instructor {
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
-  if (Instructor) { module.exports.Instructor = Instructor }
-  if (Student) { module.exports.Student = Student }
-  if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
+if (typeof exports !== "undefined") {
+  module.exports = module.exports || {};
+  if (Airplane) {
+    module.exports.Airplane = Airplane;
+  }
+  if (Person) {
+    module.exports.Person = Person;
+  }
+  if (Car) {
+    module.exports.Car = Car;
+  }
+  if (Lambdasian) {
+    module.exports.Lambdasian = Lambdasian;
+  }
+  if (Instructor) {
+    module.exports.Instructor = Instructor;
+  }
+  if (Student) {
+    module.exports.Student = Student;
+  }
+  if (ProjectManager) {
+    module.exports.ProjectManager = ProjectManager;
+  }
 }

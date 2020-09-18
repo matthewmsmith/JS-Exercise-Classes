@@ -192,21 +192,32 @@ console.log(instructor.grade("Matthew", "Math"));
 */
 class Student extends Lambdasian {
   constructor(person) {
-    super();
+    super(person);
+    
     this.previousBackground = person.previousBackground;
     this.className = person.className;
-    this.favSubjects = [];
+    this.favSubjects = ['JS', 'Node', 'Redux'];
   }
   listSubjects() {
-    return `${this.favSubjects}`;
+    return `${this.favSubjects}`
   }
   sprintChallenge(subject) {
-    return `${name}  has begun spring challenge on ${subject}`;
+    return `${this.name}  has begun spring challenge on ${subject}`;
   }
-  PRAssinment(subject) {
-    return `${name}  has submitted a PR for ${subject}`;
+  PRAssignment(subject) {
+    return `${this.name}  has submitted a PR for ${subject}`;
   }
 }
+const student1 = new Student({
+  name: 'Matthew',
+  age: 27,
+  location: 'MI',
+  previousBackground: 'Officer',
+  className: 'lambda',
+
+})
+console.log(student1);
+
 
 /*
   TASK 6
@@ -222,19 +233,33 @@ class Student extends Lambdasian {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager extends Instructor {
-  constructor(information) {
-    super();
-    this.gradClassName = information.gradClassName;
-    this.favInstructor = information.favInstructor;
+  constructor(person) {
+    super(person);
+    this.gradClassName = person.gradClassName;
+    this.favInstructor = person.favInstructor;
   }
   standUp(slackChannel) {
-    return `${name} announces ti ${slackChannel}, @channel standy times!`;
+    return `${name} announces to ${slackChannel}, @channel standy times!`;
   }
   debugsCode(student, subject) {
-    return `${name} debugs, ${student}'s code on ${subject}`;
+    return `${student1} debugs ${student.name}'s code on ${subject}`;
   }
 }
 
+
+const projectMan = new ProjectManager({
+  age: 35,
+  catchPhrase:'Dont forget the homies',
+  favInstructor: 'unknown',
+  favLanguage: 'js',
+  gradClassName: 'a',
+  location: 'kalamazoo',
+  name: 'john',
+  specialty: 'react',
+})
+console.log(projectMan.standUp(4))
+console.log(projectMan.debugsCode('Tom', 'English'));
+console.log(projectMan);
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.

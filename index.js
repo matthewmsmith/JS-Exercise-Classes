@@ -242,7 +242,7 @@ class ProjectManager extends Instructor {
     return `${name} announces to ${slackChannel}, @channel standy times!`;
   }
   debugsCode(student, subject) {
-    return `${student1} debugs ${student.name}'s code on ${subject}`;
+    return `${this.name} debugs ${student}'s code on ${subject}`;
   }
 }
 
@@ -258,7 +258,7 @@ const projectMan = new ProjectManager({
   specialty: 'react',
 })
 console.log(projectMan.standUp(4))
-console.log(projectMan.debugsCode('Tom', 'English'));
+console.log(projectMan.debugsCode(student1.name, 'java'));
 console.log(projectMan);
 /*
   STRETCH PROBLEM (no tests!)
